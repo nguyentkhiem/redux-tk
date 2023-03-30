@@ -49,11 +49,14 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx --ext .ts ./src",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": "eslint"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "yarn run lint-staged"
     }
   },
   "commitlint": {
