@@ -19,6 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "newLine": "lf",
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
@@ -26,6 +27,7 @@
       "services/*": ["services/*"],
       "context/*": ["context/*"],
       "features/*": ["features/*"],
+      "app/*": ["app/*"],
     },
     "typeRoots": [
       "./node_modules/@types",

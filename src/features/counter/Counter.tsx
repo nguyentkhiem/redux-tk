@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { decrement, increment, incrementByAmount, incrementAsync, incrementIfOdd, selectCount, incrementSaga } from './counterSlice';
 import styles from './Counter.module.css';
 
@@ -26,7 +26,6 @@ export function Counter() {
       </div>
       <div className={styles.row}>
         <input
-          // @ts-nocheck
           className={styles.textbox}
           aria-label="Set increment amount"
           value={incrementAmount}
