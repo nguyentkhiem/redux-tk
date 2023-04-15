@@ -1,55 +1,55 @@
-import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Layout, theme } from 'antd';
+import { useTranslation } from 'react-i18next';
+import HeaderLayout from './header';
+import SiderLayout from './sider';
+import BreadcrumbLayout from './breadcrumb';
+import { routesConfig } from 'routes/router';
 
-const { Header, Content, Sider } = Layout;
-
-const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-
-const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
-  const key = String(index + 1);
-
-  return {
-    key: `sub${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
-
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
+const { Content } = Layout;
 
 const MainLayout: React.FunctionComponent<LayoutDefaultProps> = ({ children }: LayoutDefaultProps) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const { t } = useTranslation();
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const menuItems = () => {
+    const menus = [];
+
+    for (let i = 0; i < routesConfig?.length; i++) {
+      if (!routesConfig[i].hideInMenu) {
+        menus.push({
+          key: `menu_${i}`,
+          icon: routesConfig[i].icon,
+          label: t(`${routesConfig[i].name}`),
+          type: 'group',
+          children: routesConfig[i].routes?.map((route, index: number) => ({
+            key: `sub_menu_${i}_${index}`,
+            label: t(`${route.name}`),
+            icon: route.icon,
+          })),
+        });
+      }
+    }
+    console.log('menus', menus);
+    return menus;
+  };
 
   return (
     <Layout>
-      <Header className="header">
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
-      </Header>
+      <HeaderLayout collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
+
       <Layout>
-        <Sider width={200} style={{ background: colorBgContainer }}>
-          <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} style={{ height: '100%', borderRight: 0 }} items={items2} />
-        </Sider>
+        <SiderLayout items={menuItems()} collapsed={collapsed} />
+
         <Layout style={{ padding: '0 24px 24px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
+          <BreadcrumbLayout />
           <Content
             style={{
               padding: 24,

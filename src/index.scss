@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-/* .ant-btn {
-  background-color: red;
-} */
-
-.ant-layout {
+.ant-layout, .ant-layout-sider {
   height: calc(100vh - 64px);
 }

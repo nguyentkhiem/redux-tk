@@ -4,8 +4,9 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
+import 'i18n';
 
 const container = document.getElementById('root');
 // @ts-ignore
