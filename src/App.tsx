@@ -1,28 +1,10 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { FunctionComponent } from 'react';
+import { Router } from 'react-router-dom';
 import './App.css';
-import { UserProvider } from 'context/user';
-import { POSTS_API } from 'shared/definitions/api';
-import { ContextTest } from './features/contextTest';
-import { Login } from 'features/auth/login';
-import { Admin } from 'components/layout/admin';
-import { NotFound } from 'components/common';
+import ListRouter from 'routes/index';
 
-function App() {
-  return (
-    <div className="App">
-      {/* <UserProvider>
-          <ContextTest />
-        </UserProvider> */}
-      <Routes>
-        <Route path="/login" Component={Login}></Route>
-        <Route path="/admin" Component={Admin}></Route>
-        <Route path="*" Component={NotFound}></Route>
-      </Routes>
-    </div>
-  );
-}
+const App: FunctionComponent = () => {
+  return <ListRouter />;
+};
 
-export default App;
+export default React.memo(App);
