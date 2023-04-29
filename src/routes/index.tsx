@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { NotFound } from 'components/common';
 import { routesConfig } from './router';
 import LoadingPageSpin from 'components/LoadingPageSpin';
+import { withAuth } from 'shared/libs';
 
 // Lazy load component async
 const LazyLoad = (component: string) => React.lazy(() => import(`features/${component}`));
@@ -13,7 +14,7 @@ const parseConfig = () => {
   for (const config of routesConfig) {
     // @ts-ignore
     for (const route of config.routes) {
-      routes.push({ ...route, layout: config.layout });
+      routes.push({ ...route, layout: config.layout, auth: config?.auth || false });
     }
   }
 
@@ -31,11 +32,11 @@ const ListRouter: React.FunctionComponent = () => (
           key={index}
           path={routes.path}
           element={
-            <React.Suspense fallback={<LoadingPageSpin isAnimating />}>
-              <Layout>
-                <Conponent />
-              </Layout>
-            </React.Suspense>
+            <Layout>
+              <React.Suspense fallback={<LoadingPageSpin isAnimating />}>
+                {withAuth(<Conponent />, routes.auth)}
+              </React.Suspense>
+            </Layout>
           }
         />
       );

@@ -9,6 +9,7 @@ const HomeRoute: RoutesConfig[] = [
     hideInMenu: false,
     icon: <HomeOutlined />,
     layout: MainLayout,
+    auth: true,
     routes: [
       {
         path: PATH_HOME,

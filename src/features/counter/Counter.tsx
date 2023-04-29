@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { decrement, increment, incrementByAmount, incrementAsync, incrementIfOdd, selectCount, incrementSaga } from './counterSlice';
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  incrementAsync,
+  incrementIfOdd,
+  selectCount,
+  incrementSaga,
+} from './counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
@@ -20,7 +28,11 @@ export function Counter() {
         <button className={styles.button} aria-label="Increment value" onClick={() => dispatch(increment())}>
           +
         </button>
-        <button className={styles.button} aria-label="Increment value saga" onClick={() => dispatch(incrementSaga(incrementValue))}>
+        <button
+          className={styles.button}
+          aria-label="Increment value saga"
+          onClick={() => dispatch(incrementSaga(incrementValue))}
+        >
           ++
         </button>
       </div>

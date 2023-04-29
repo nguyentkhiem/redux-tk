@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Layout, Row } from 'antd';
-import { redirect, Outlet } from 'react-router-dom';
+import { Layout } from 'antd';
 
 const Authlayout: React.FunctionComponent = ({ children }: any) => {
   return (
@@ -12,10 +11,8 @@ const Authlayout: React.FunctionComponent = ({ children }: any) => {
         backgroundColor: '#fff',
       }}
     >
-      <Outlet />
       <b style={{ marginTop: 30 }}>{'Login'}</b>
       {children}
-      <Button onClick={() => redirect('/posts')}>Login</Button>
     </Layout>
   );
 };

@@ -29,7 +29,7 @@ interface BarProps {
 const Bar: React.FC<BarProps> = ({ animationDuration, progress }: BarProps) => (
   <div
     style={{
-      background: '#d0ed19',
+      background: '#1677ff',
       height: 2,
       left: 0,
       marginLeft: `${(-1 + progress) * 100}%`,
@@ -42,7 +42,7 @@ const Bar: React.FC<BarProps> = ({ animationDuration, progress }: BarProps) => (
   >
     <div
       style={{
-        boxShadow: '0 0 10px #d0ed19, 0 0 5px #29d',
+        boxShadow: '0 0 10px #1677ff, 0 0 5px #29d',
         display: 'block',
         height: '100%',
         opacity: 1,

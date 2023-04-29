@@ -1,5 +1,5 @@
-import { MainLayout } from 'components/layout';
 import { PicRightOutlined } from '@ant-design/icons';
+import { MainLayout } from 'components/layout';
 import { PATH_POSTS, PATH_POSTS_CREATE } from 'routes/paths';
 
 const PostsRoute: RoutesConfig[] = [
@@ -9,6 +9,7 @@ const PostsRoute: RoutesConfig[] = [
     hideInMenu: false,
     icon: <PicRightOutlined />,
     layout: MainLayout,
+    auth: true,
     routes: [
       {
         path: PATH_POSTS,

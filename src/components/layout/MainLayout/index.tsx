@@ -28,16 +28,16 @@ const MainLayout: React.FunctionComponent<LayoutDefaultProps> = ({ children }: L
           key: `menu_${i}`,
           icon: routesConfig[i].icon,
           label: t(`${routesConfig[i].name}`),
-          type: 'group',
           children: routesConfig[i].routes?.map((route, index: number) => ({
             key: `sub_menu_${i}_${index}`,
             label: t(`${route.name}`),
             icon: route.icon,
+            path: route.path,
           })),
         });
       }
     }
-    console.log('menus', menus);
+
     return menus;
   };
 

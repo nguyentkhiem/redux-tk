@@ -9,6 +9,7 @@ interface RoutesObject {
   component: string;
   hideInMenu?: boolean;
   layout?: ReactNode;
+  auth?: boolean;
 }
 
 interface RoutesConfig {
@@ -18,4 +19,5 @@ interface RoutesConfig {
   icon?: ReactNode;
   layout: ReactNode;
   routes?: RoutesObject[];
+  auth?: boolean;
 }
