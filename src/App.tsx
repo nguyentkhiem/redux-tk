@@ -6,11 +6,10 @@ import { LoadingProvider } from 'context/loading';
 import { BreadcrumbsProvider } from 'context/breadcrumb';
 
 import ListRouter from 'routes/index';
-import { PATH_AUTH_LOGIN } from 'routes/paths';
+import { PAGES_NOT_AUTH, PATH_AUTH_LOGIN } from 'routes/paths';
 import { GlobalDebug } from 'shared/utils/remove-consoles';
 import { ENV_PRODUCTION } from 'shared/definitions/config';
 import { useAuth } from 'shared/definitions/hooks';
-import { PAGES_NOT_AUTH } from 'shared/utils/string';
 import { theme } from 'shared/theme';
 
 const App: FunctionComponent = () => {
