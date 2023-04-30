@@ -10,3 +10,6 @@ export const PATH_USERS = '/users';
 export const PATH_USERS_CREATE = '/users/create';
 
 export const PATH_USAGE = '/usage';
+
+// not-authen
+export const PAGES_NOT_AUTH = ['/usage'];
