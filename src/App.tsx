@@ -1,12 +1,17 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import './App.css';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
+
+import { LoadingProvider } from 'context/loading';
+import { BreadcrumbsProvider } from 'context/breadcrumb';
+
 import ListRouter from 'routes/index';
+import { PATH_AUTH_LOGIN } from 'routes/paths';
 import { GlobalDebug } from 'shared/utils/remove-consoles';
 import { ENV_PRODUCTION } from 'shared/definitions/config';
 import { useAuth } from 'shared/definitions/hooks';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { PATH_AUTH_LOGIN } from 'routes/paths';
 import { PAGES_NOT_AUTH } from 'shared/utils/string';
+import { theme } from 'shared/theme';
 
 const App: FunctionComponent = () => {
   const { isLogin } = useAuth();
@@ -32,7 +37,15 @@ const App: FunctionComponent = () => {
     });
   }, [isLogin]);
 
-  return <ListRouter />;
+  return (
+    <ConfigProvider theme={theme}>
+      <LoadingProvider>
+        <BreadcrumbsProvider>
+          <ListRouter />
+        </BreadcrumbsProvider>
+      </LoadingProvider>
+    </ConfigProvider>
+  );
 };
 
 export default React.memo(App);

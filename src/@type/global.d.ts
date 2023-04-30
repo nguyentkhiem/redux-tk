@@ -22,3 +22,9 @@ interface RoutesConfig {
   routes?: RoutesObject[];
   auth?: boolean;
 }
+
+interface IBreadcrumbs {
+  path?: string | ReactNode;
+  icon?: ReactNode;
+  title?: string | ReactNode;
+}

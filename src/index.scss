@@ -19,3 +19,14 @@ code {
 .ant-layout, .ant-layout-sider {
   height: calc(100vh - 64px);
 }
+
+.ant-spin-container {
+  height: 100vh;
+}
+
+.ant-spin-nested-loading >div>.ant-spin {
+  max-height: 100vh;
+}
+.ant-layout-header {
+  padding-inline: 0px;
+}

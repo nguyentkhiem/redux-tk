@@ -1,8 +1,8 @@
 {
   "auth": {
-    "login": "Login"
+    "login": "ログイン"
   },
-  "home": "Home",
+  "home": "ホーム",
   "posts": "Posts",
   "posts.list": "List Posts",
   "posts.create": "Create Posts",

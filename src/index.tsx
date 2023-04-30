@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import 'i18n';
+import 'antd/dist/reset.css';
+import './index.scss';
 
 const container = document.getElementById('root');
 // @ts-ignore

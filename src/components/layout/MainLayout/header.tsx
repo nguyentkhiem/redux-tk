@@ -1,16 +1,11 @@
 import React from 'react';
-import type { MenuProps } from 'antd';
+import { Switch } from 'antd';
 import { Button, Layout, Menu } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import i18next from 'i18next';
 
 const { Header } = Layout;
-
-const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
-
 interface HeaderLayoutProps {
   collapsed: boolean;
   toggleCollapsed: () => void;
@@ -18,18 +13,38 @@ interface HeaderLayoutProps {
 
 const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = (props: HeaderLayoutProps) => {
   const { collapsed, toggleCollapsed } = props;
+  const I18N_DEFAULT_LNG = 'ja';
+
+  const onChange = (checked: boolean) => {
+    const locale = checked ? 'ja' : 'en';
+
+    i18next.changeLanguage(locale).then((t) => {
+      // set locale to localstorage
+    });
+  };
 
   return (
     <Header className="header">
       <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-        <h1 style={{ color: '#ffffff', width: 200 }}>NTK</h1>
-        {/* <div className="logo" /> */}
+        {!collapsed ? (
+          <div style={{ width: 260, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img width={80} height={40} src="logo2.jpg" />
+          </div>
+        ) : (
+          <div style={{ width: 80 }}></div>
+        )}
 
-        {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} /> */}
-
-        <Button type="primary" onClick={toggleCollapsed} style={{ width: 40 }}>
+        <Button type="default" onClick={toggleCollapsed} style={{ width: 40 }}>
           {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         </Button>
+
+        <Switch
+          style={{ height: 24, border: '1px solid #ffffff', position: 'absolute', right: 25 }}
+          onChange={onChange}
+          checkedChildren="ja"
+          unCheckedChildren="en"
+          defaultChecked={I18N_DEFAULT_LNG === 'ja'}
+        />
       </div>
     </Header>
   );

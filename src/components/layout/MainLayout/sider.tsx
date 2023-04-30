@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Menu, MenuProps } from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -15,12 +15,11 @@ interface SiderLayoutProps {
 
 const SiderLayout: React.FunctionComponent<SiderLayoutProps> = (props: SiderLayoutProps) => {
   const { items, collapsed } = props;
+  const [openKeys, setOpenKeys] = useState([]);
+  const [selectedKeys, setSelectedKeys] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const { isLogin } = useAuth();
-
-  const menuSelected = items?.find((item) => item?.children?.find((m) => m?.path === location?.pathname));
-  const subMenuSelected = menuSelected?.children?.find((m) => m?.path === location?.pathname)?.key;
 
   const handleOnClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { key } = e;
@@ -39,12 +38,25 @@ const SiderLayout: React.FunctionComponent<SiderLayoutProps> = (props: SiderLayo
     }
   };
 
+  const onOpenChange = (openKeys: string[]) => {
+    setOpenKeys(openKeys);
+  };
+
+  useEffect(() => {
+    const menuSelected = items?.find((item) => item?.children?.find((m) => m?.path === location?.pathname));
+    const subMenuSelected = menuSelected?.children?.find((m) => m?.path === location?.pathname)?.key;
+
+    setOpenKeys([...new Set([...openKeys, `${menuSelected?.key}`])]);
+    setSelectedKeys([`${subMenuSelected}`]);
+  }, [location?.pathname]);
+
   return (
     <Sider collapsed={collapsed} width={250}>
       <Menu
         onSelect={handleOnClick}
-        defaultOpenKeys={[`${menuSelected?.key}`]}
-        defaultSelectedKeys={[`${subMenuSelected}`]}
+        onOpenChange={onOpenChange}
+        openKeys={openKeys}
+        selectedKeys={selectedKeys}
         mode="inline"
         theme="dark"
         items={items}

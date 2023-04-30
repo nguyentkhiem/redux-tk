@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Breadcrumb } from 'antd';
+import { BreadcrumbsContext } from 'context/breadcrumb';
 
 const BreadcrumbLayout: React.FunctionComponent = () => {
-  return (
-    <Breadcrumb style={{ margin: '16px 0' }}>
-      <Breadcrumb.Item>Home</Breadcrumb.Item>
-      <Breadcrumb.Item>List</Breadcrumb.Item>
-      <Breadcrumb.Item>App</Breadcrumb.Item>
-    </Breadcrumb>
-  );
+  const { breadcrumbs }: any = useContext(BreadcrumbsContext);
+
+  return <Breadcrumb separator=">" style={{ margin: '16px 0' }} items={breadcrumbs} />;
 };
 
 export default BreadcrumbLayout;
