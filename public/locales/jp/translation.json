@@ -1,4 +1,7 @@
 {
+  "auth": {
+    "login": "Login"
+  },
   "home": "Home",
   "posts": "Posts",
   "posts.list": "List Posts",

@@ -1,8 +1,5 @@
-import { HomeRoute } from 'routes/home';
-import { PostsRoute } from 'routes/posts';
-import { UsersRoute } from 'routes/users';
-import { AuthRoute } from 'routes/auth';
+import { AuthRoute, HomeRoute, PostsRoute, UsageRoute, UsersRoute } from 'routes/configs';
 
-const routesConfig: RoutesConfig[] = [...AuthRoute, ...HomeRoute, ...PostsRoute, ...UsersRoute];
+const routesConfig: RoutesConfig[] = [...AuthRoute, ...HomeRoute, ...PostsRoute, ...UsersRoute, ...UsageRoute];
 
 export { routesConfig };

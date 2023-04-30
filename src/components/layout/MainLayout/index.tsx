@@ -5,6 +5,7 @@ import HeaderLayout from './header';
 import SiderLayout from './sider';
 import BreadcrumbLayout from './breadcrumb';
 import { routesConfig } from 'routes/router';
+import { hasRoles } from 'shared/libs';
 
 const { Content } = Layout;
 
@@ -19,22 +20,48 @@ const MainLayout: React.FunctionComponent<LayoutDefaultProps> = ({ children }: L
     setCollapsed(!collapsed);
   };
 
+  const hasRolesConfigs = (routes: RoutesObject[] | undefined) => {
+    if (!routes?.length) return false;
+
+    const rolesItems: any = routes?.reduce((acc: any, curr) => {
+      if (hasRoles(curr?.roles)) {
+        acc = [...acc, curr];
+      }
+
+      return acc;
+    }, []);
+
+    if (rolesItems?.length) return true;
+
+    return false;
+  };
+
   const menuItems = () => {
     const menus = [];
 
     for (let i = 0; i < routesConfig?.length; i++) {
       if (!routesConfig[i].hideInMenu) {
-        menus.push({
-          key: `menu_${i}`,
-          icon: routesConfig[i].icon,
-          label: t(`${routesConfig[i].name}`),
-          children: routesConfig[i].routes?.map((route, index: number) => ({
-            key: `sub_menu_${i}_${index}`,
-            label: t(`${route.name}`),
-            icon: route.icon,
-            path: route.path,
-          })),
-        });
+        if (hasRolesConfigs(routesConfig[i].routes)) {
+          menus.push({
+            key: `menu_${i}`,
+            icon: routesConfig[i].icon,
+            label: t(`${routesConfig[i].name}`),
+            children: routesConfig[i].routes?.reduce((acc: any, route, index: number) => {
+              if (hasRoles(route?.roles))
+                acc = [
+                  ...acc,
+                  {
+                    key: `sub_menu_${i}_${index}`,
+                    label: t(`${route.name}`),
+                    icon: route.icon,
+                    path: route.path,
+                  },
+                ];
+
+              return acc;
+            }, []),
+          });
+        }
       }
     }
 

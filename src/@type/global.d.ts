@@ -10,6 +10,7 @@ interface RoutesObject {
   hideInMenu?: boolean;
   layout?: ReactNode;
   auth?: boolean;
+  roles?: string['ADMIN' | 'USER' | 'GUEST'];
 }
 
 interface RoutesConfig {

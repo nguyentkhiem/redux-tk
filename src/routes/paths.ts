@@ -8,3 +8,5 @@ export const PATH_POSTS_CREATE = '/posts/create';
 
 export const PATH_USERS = '/users';
 export const PATH_USERS_CREATE = '/users/create';
+
+export const PATH_USAGE = '/usage';

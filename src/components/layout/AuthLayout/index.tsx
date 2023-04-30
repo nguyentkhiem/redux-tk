@@ -8,10 +8,9 @@ const Authlayout: React.FunctionComponent = ({ children }: any) => {
         height: '100vh',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: 'rgb(243 243 243)',
       }}
     >
-      <b style={{ marginTop: 30 }}>{'Login'}</b>
       {children}
     </Layout>
   );
