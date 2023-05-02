@@ -4,13 +4,17 @@ import { BreadcrumbsContext } from 'context/breadcrumb';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PATH_HOME, PATH_USERS } from 'routes/paths';
+import useLocalStorage from 'shared/definitions/hooks/useLocalStorage';
+import { LOCAL_STORAGES } from 'shared/utils/string';
 
 export interface IUsersProps {}
 
 const Users: React.FunctionComponent = (props: IUsersProps) => {
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
+  const [storedValueTest, setValueTest] = useLocalStorage(LOCAL_STORAGES.TEST, 'TEST');
 
   useEffect(() => {
+    setValueTest('HIHI');
     setBreadcrumbs([
       {
         title: (
