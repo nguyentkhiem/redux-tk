@@ -1,4 +1,4 @@
-import { MainLayout } from 'components/layout';
+import { MainLayout } from 'shared/components/Layout';
 import { HomeOutlined } from '@ant-design/icons';
 import { PATH_HOME } from 'routes/paths';
 

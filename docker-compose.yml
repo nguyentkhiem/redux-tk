@@ -1,0 +1,12 @@
+version: '3'
+services:
+  react_base:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    working_dir: /var/www/react_base
+    volumes:
+      - .:/var/www/react_base
+      - /var/www/react_base/node_modules
+    ports:
+      - 5006:3002

@@ -1,4 +1,4 @@
-import { MainLayout } from 'components/layout';
+import { MainLayout } from 'shared/components/Layout';
 import { UserOutlined } from '@ant-design/icons';
 import { PATH_USERS, PATH_USERS_CREATE } from 'routes/paths';
 import { ROLES } from 'shared/utils/common';

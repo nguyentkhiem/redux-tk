@@ -1,5 +1,5 @@
 import { PicRightOutlined } from '@ant-design/icons';
-import { BlankLayout } from 'components/layout';
+import { BlankLayout } from 'shared/components/Layout';
 import { PATH_USAGE } from 'routes/paths';
 
 const UsageRoute: RoutesConfig[] = [

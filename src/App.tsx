@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
+import i18n from 'i18n';
 
 import { LoadingProvider } from 'context/loading';
 import { BreadcrumbsProvider } from 'context/breadcrumb';
@@ -16,6 +17,8 @@ const App: FunctionComponent = () => {
   const { isLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  document.documentElement.lang = i18n.language;
 
   if (process.env.REACT_APP_NODE_ENV === ENV_PRODUCTION) {
     GlobalDebug(false, true);

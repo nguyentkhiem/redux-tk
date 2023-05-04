@@ -1,5 +1,5 @@
 import { PicRightOutlined } from '@ant-design/icons';
-import { MainLayout } from 'components/layout';
+import { MainLayout } from 'shared/components/Layout';
 import { PATH_POSTS, PATH_POSTS_CREATE } from 'routes/paths';
 import { ROLES } from 'shared/utils/common';
 

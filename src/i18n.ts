@@ -21,3 +21,5 @@ i18n
     load: 'languageOnly',
     fallbackLng: false,
   });
+
+export default i18n;

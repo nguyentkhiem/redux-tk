@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { NotFound } from 'components/common';
+import { NotFound } from 'shared/components/Common';
 import { routesConfig } from './router';
-import LoadingPageSpin from 'components/LoadingPageSpin';
+import LoadingPageSpin from 'shared/components/LoadingPageSpin';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { withRole } from 'shared/libs';
-import Forbidden from 'components/common/Forbidden';
+import Forbidden from 'shared/components/Common/Forbidden';
 
 // Lazy load component async
 const LazyLoad = (component: string) => React.lazy(() => import(`features/${component}`));
