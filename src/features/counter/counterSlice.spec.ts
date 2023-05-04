@@ -1,4 +1,4 @@
-import counterReducer, { CounterState, increment, decrement, incrementByAmount } from './counterSlice';
+import counterReducer, { CounterState, increment, decrement, incrementByAmount } from 'redux-setup/counter';
 
 describe('counter reducer', () => {
   const initialState: CounterState = {

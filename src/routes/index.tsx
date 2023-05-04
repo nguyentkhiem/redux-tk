@@ -6,7 +6,6 @@ import LoadingPageSpin from 'shared/components/LoadingPageSpin';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { withRole } from 'shared/libs';
-import Forbidden from 'shared/components/Common/Forbidden';
 
 // Lazy load component async
 const LazyLoad = (component: string) => React.lazy(() => import(`features/${component}`));
@@ -36,19 +35,18 @@ const ListRouter: React.FunctionComponent = () => (
           key={index}
           path={routes.path}
           element={
-            <Layout>
-              <Helmet>
-                <title>{`Michiisoft | ${t(`${routes?.name}`)}`}</title>
-              </Helmet>
-              <React.Suspense fallback={<LoadingPageSpin isAnimating />}>
-                {withRole(Component, routes?.roles)}
-              </React.Suspense>
-            </Layout>
+            // <Layout>
+            //   <Helmet>
+            //     <title>{`Michiisoft | ${t(`${routes?.name}`)}`}</title>
+            //   </Helmet>
+            <React.Suspense fallback={<LoadingPageSpin isAnimating />}>
+              {withRole(Component, routes?.roles)}
+            </React.Suspense>
+            // </Layout>
           }
         />
       );
     })}
-    <Route path="/forbidden" element={<Forbidden />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

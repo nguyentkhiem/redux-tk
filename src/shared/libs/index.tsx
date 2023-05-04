@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { useAuth } from 'shared/definitions/hooks';
 import { DEFAULT_PAGE_LOGIN } from 'shared/definitions/config';
 import { ROLES } from 'shared/utils/common';
+import Forbidden from 'shared/components/Common/Forbidden';
 
 /**
  *
@@ -34,4 +35,4 @@ export const hasRoles = (roles?: ROLES[]) => {
  * @param role
  */
 export const withRole = (Component: React.ElementType, roles?: ROLES[]) =>
-  hasRoles(roles) ? <Component /> : <Navigate to={'/forbidden'} />;
+  hasRoles(roles) ? <Component /> : <Forbidden />;
