@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch } from 'antd';
-import { Button, Layout, Menu } from 'antd';
+import { Button, Layout, Switch } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import i18next from 'i18next';
@@ -28,7 +27,7 @@ const HeaderLayout: React.FunctionComponent<HeaderLayoutProps> = (props: HeaderL
       <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
         {!collapsed ? (
           <div style={{ width: 260, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img width={80} height={40} src="logo2.jpg" />
+            <img width={80} height={40} src="/logo2.jpg" />
           </div>
         ) : (
           <div style={{ width: 80 }}></div>

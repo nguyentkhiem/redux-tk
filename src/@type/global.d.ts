@@ -2,6 +2,13 @@ interface LayoutDefaultProps {
   children?: ReactNode;
 }
 
+interface AppContextProps {
+  props: {
+    [x: string]: any;
+  };
+  setProps: (props: { [x: string]: any }) => void;
+}
+
 interface RoutesObject {
   path: string;
   name?: string;

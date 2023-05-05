@@ -7,7 +7,7 @@ import styles from './Counter.module.css';
 const CounterPage: React.FunctionComponent = () => {
   const counter = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
-  const [incrementAmount, setIncrementAmount] = useState(0);
+  const [incrementAmount, setIncrementAmount] = useState<any>(0);
 
   useEffect(() => {
     setIncrementAmount(counter);
@@ -36,7 +36,7 @@ const CounterPage: React.FunctionComponent = () => {
           className={styles.textbox}
           aria-label="Set increment amount"
           value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value as any)}
+          onChange={(e) => setIncrementAmount(e.target.value)}
         />
         <button className={styles.button} onClick={() => dispatch(incrementByAmount(incrementAmount))}>
           Add Amount
