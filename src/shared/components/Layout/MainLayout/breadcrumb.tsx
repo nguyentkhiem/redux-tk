@@ -5,7 +5,11 @@ import { BreadcrumbsContext } from 'context/breadcrumb';
 const BreadcrumbLayout: React.FunctionComponent = () => {
   const { breadcrumbs }: any = useContext(BreadcrumbsContext);
 
-  return <Breadcrumb separator=">" style={{ margin: '16px 0' }} items={breadcrumbs} />;
+  return breadcrumbs?.length ? (
+    <Breadcrumb separator=">" style={{ margin: '16px 0' }} items={breadcrumbs} />
+  ) : (
+    <div style={{ margin: '16px 0' }}></div>
+  );
 };
 
 export default BreadcrumbLayout;

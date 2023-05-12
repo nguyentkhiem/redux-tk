@@ -1,8 +1,14 @@
+import React, { useContext, useEffect, useState } from 'react';
 import { HomeOutlined, PicRightOutlined } from '@ant-design/icons';
+import { Button, Modal } from 'antd';
+import { Link } from 'react-router-dom';
+// context
 import { BreadcrumbsContext } from 'context/breadcrumb';
 import { LoadingContext } from 'context/loading';
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+// shared
+import { ModalCreateUser, ModalCreateUserProps } from 'shared/components/Modal';
+import { useModal } from 'shared/definitions/hooks';
+// others
 import { PATH_HOME, PATH_POSTS } from 'routes/paths';
 
 export interface IPostsProps {}
@@ -10,6 +16,7 @@ export interface IPostsProps {}
 const Posts: React.FunctionComponent = (props: IPostsProps) => {
   const { setShow, setHide } = useContext(LoadingContext);
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
+  const { showModal, hideModal } = useModal();
 
   useEffect(() => {
     setBreadcrumbs([
@@ -37,7 +44,23 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
   useEffect(() => {
     // setShow();
   }, []);
-  return <>Posts</>;
+
+  return (
+    <>
+      <h3>Posts</h3>
+      <Button
+        type="primary"
+        onClick={() => {
+          showModal<ModalCreateUserProps>(ModalCreateUser, {
+            user: {},
+            createUser: () => {},
+          });
+        }}
+      >
+        modal dialog
+      </Button>
+    </>
+  );
 };
 
 export default Posts;

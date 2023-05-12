@@ -10,7 +10,6 @@ const UsersRoute: RoutesConfig[] = [
     hideInMenu: false,
     icon: <UserOutlined />,
     layout: MainLayout,
-    auth: true,
     routes: [
       {
         path: PATH_USERS,

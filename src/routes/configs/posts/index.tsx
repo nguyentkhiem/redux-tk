@@ -10,7 +10,6 @@ const PostsRoute: RoutesConfig[] = [
     hideInMenu: false,
     icon: <PicRightOutlined />,
     layout: MainLayout,
-    auth: true,
     routes: [
       {
         path: PATH_POSTS,

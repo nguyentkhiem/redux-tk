@@ -9,7 +9,6 @@ const UsageRoute: RoutesConfig[] = [
     hideInMenu: true,
     icon: <PicRightOutlined />,
     layout: BlankLayout,
-    auth: true,
     routes: [
       {
         path: PATH_USAGE,

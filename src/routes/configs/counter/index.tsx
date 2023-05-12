@@ -9,7 +9,6 @@ const CounterRoute: RoutesConfig[] = [
     hideInMenu: false,
     icon: <PicRightOutlined />,
     layout: MainLayout,
-    auth: true,
     routes: [
       {
         path: '/counter',

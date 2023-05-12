@@ -1,4 +1,6 @@
+import { ModalContext } from 'context/modal';
 import Cookie from 'js-cookie';
+import { useContext } from 'react';
 import { ACCESS_TOKEN } from 'shared/utils/string';
 
 /**
@@ -12,4 +14,4 @@ export const useAuth = () => {
 /**
  * @description
  */
-// export const useModal = () => useContext(ModalContext);
+export const useModal = () => useContext(ModalContext);

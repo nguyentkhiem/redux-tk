@@ -4,6 +4,7 @@ import { ConfigProvider } from 'antd';
 // context
 import { LoadingProvider } from 'context/loading';
 import { BreadcrumbsProvider } from 'context/breadcrumb';
+import { ModalRoot } from 'context/modal';
 // others
 import ListRouter from 'routes/index';
 import { theme } from 'shared/theme';
@@ -14,6 +15,7 @@ const App: FunctionComponent = () => {
       <LoadingProvider>
         <BreadcrumbsProvider>
           <ListRouter />
+          <ModalRoot />
         </BreadcrumbsProvider>
       </LoadingProvider>
     </ConfigProvider>

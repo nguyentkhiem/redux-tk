@@ -16,7 +16,7 @@ const parseConfig = () => {
   for (const config of routesConfig) {
     // @ts-ignore
     for (const route of config.routes) {
-      routes.push({ ...route, layout: config.layout, auth: config?.auth || false });
+      routes.push({ ...route, layout: config.layout });
     }
   }
 

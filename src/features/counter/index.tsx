@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'redux-setup/hooks';
 import { decrement, increment, incrementByAmount, incrementSaga } from 'redux-setup/counter';
-import styles from './Counter.module.css';
+import styles from './counter.module.scss';
 
 const CounterPage: React.FunctionComponent = () => {
   const counter = useAppSelector((state) => state.counter.value);
