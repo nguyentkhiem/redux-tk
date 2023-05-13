@@ -41,6 +41,7 @@
     "js-cookie": "^3.0.1",
     "lint-staged": "^13.2.0",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "node-sass": "^8.0.0",
     "path-to-regexp": "^6.2.1",
     "prettier": "^2.8.7",

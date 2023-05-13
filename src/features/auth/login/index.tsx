@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Cookie from 'js-cookie';
 import { Button, Checkbox, Input, Form, Row, Col } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { ACCESS_TOKEN } from 'shared/utils/string';
+import { ACCESS_TOKEN } from 'shared/utils/variables';
 import { useAuth } from 'shared/definitions/hooks';
 import { DEFAULT_PAGE_HOME } from 'shared/definitions/config';
 import styles from './login.module.scss';

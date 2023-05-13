@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PATH_HOME, PATH_USERS } from 'routes/paths';
 import useLocalStorage from 'shared/definitions/hooks/useLocalStorage';
-import { LOCAL_STORAGES } from 'shared/utils/string';
+import { LOCAL_STORAGES } from 'shared/utils/variables';
 
 export interface IUsersProps {}
 

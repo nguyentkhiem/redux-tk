@@ -1,7 +1,7 @@
 import { ModalContext } from 'context/modal';
 import Cookie from 'js-cookie';
 import { useContext } from 'react';
-import { ACCESS_TOKEN } from 'shared/utils/string';
+import { ACCESS_TOKEN } from 'shared/utils/variables';
 
 /**
  * @description
