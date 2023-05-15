@@ -1,3 +1,4 @@
+type ID = string | number | undefined;
 interface LayoutDefaultProps {
   children?: ReactNode;
 }

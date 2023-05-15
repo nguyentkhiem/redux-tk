@@ -3,12 +3,6 @@ export const TAB = {
   TAB_T: 'TAB_T',
 };
 
-export enum ROLES {
-  ADMIN = 'ADMIN',
-  USER = 'USER',
-  GUEST = 'GUEST',
-}
-
 export const EXCEPT_TYPES = [
   'text/csv',
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import _ from 'lodash';
 import { useAuth } from 'shared/definitions/hooks';
 import { DEFAULT_PAGE_LOGIN } from 'shared/definitions/config';
-import { ROLES } from 'shared/utils/common';
+import { Roles } from 'shared/definitions/auth';
 import Forbidden from 'shared/components/Common/Forbidden';
 
 /**
@@ -20,7 +20,7 @@ import Forbidden from 'shared/components/Common/Forbidden';
  *
  * @param role
  */
-export const hasRoles = (roles?: ROLES[]) => {
+export const hasRoles = (roles?: Roles[]) => {
   if (!roles) return true;
 
   const userInfo: any = {
@@ -34,5 +34,5 @@ export const hasRoles = (roles?: ROLES[]) => {
  *
  * @param role
  */
-export const withRole = (Component: React.ElementType, roles?: ROLES[]) =>
+export const withRole = (Component: React.ElementType, roles?: Roles[]) =>
   hasRoles(roles) ? <Component /> : <Forbidden />;

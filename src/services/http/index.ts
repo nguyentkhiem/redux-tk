@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookie from 'js-cookie';
+import { Permissions } from 'shared/definitions/auth';
 
 interface optionsType {
   baseURL: string | undefined;
@@ -123,6 +124,10 @@ class Http {
         return Promise.reject(error);
       },
     );
+  }
+
+  can(permission?: Permissions | Permissions[]): boolean {
+    return false;
   }
 }
 

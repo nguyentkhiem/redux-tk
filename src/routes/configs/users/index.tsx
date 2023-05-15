@@ -1,7 +1,7 @@
 import { MainLayout } from 'shared/components/Layout';
 import { UserOutlined } from '@ant-design/icons';
 import { PATH_USERS, PATH_USERS_CREATE } from 'routes/paths';
-import { ROLES } from 'shared/utils/common';
+import { Roles } from 'shared/definitions/auth';
 
 const UsersRoute: RoutesConfig[] = [
   {
@@ -16,14 +16,14 @@ const UsersRoute: RoutesConfig[] = [
         name: 'users.list',
         icon: <UserOutlined />,
         component: 'users',
-        roles: [ROLES.ADMIN, ROLES.USER],
+        roles: [Roles.ADMIN, Roles.USER],
       },
       {
         path: PATH_USERS_CREATE,
         name: 'users.create',
         icon: <UserOutlined />,
         component: 'users/create',
-        roles: [ROLES.ADMIN],
+        roles: [Roles.ADMIN],
       },
     ],
   },

@@ -1,6 +1,6 @@
 import { PicRightOutlined } from '@ant-design/icons';
 import { MainLayout } from 'shared/components/Layout';
-import { ROLES } from 'shared/utils/common';
+import { Roles } from 'shared/definitions/auth';
 
 const CounterRoute: RoutesConfig[] = [
   {
@@ -15,7 +15,7 @@ const CounterRoute: RoutesConfig[] = [
         name: 'counter',
         icon: <PicRightOutlined />,
         component: 'counter',
-        roles: [ROLES.ADMIN, ROLES.USER, ROLES.GUEST],
+        roles: [Roles.ADMIN, Roles.USER, Roles.GUEST],
       },
     ],
   },
