@@ -7,7 +7,7 @@ export const ModalContext = React.createContext<ModalContextProps>({
   hideModal: () => {},
 });
 
-export const ModalProvider: React.FunctionComponent = ({ children }: any) => {
+export const ModalProvider = ({ children }: any) => {
   const showModal = (component: any, props: any) => {
     setModal({
       props,
@@ -41,7 +41,7 @@ export const ModalRoot: React.FunctionComponent = () => (
   </ModalContext.Consumer>
 );
 
-export const useModal = () => {
-  const { showModal, hideModal } = React.useContext(ModalContext);
-  return { showModal, hideModal };
-};
+// export const useModal = () => {
+//   const { showModal, hideModal } = React.useContext(ModalContext);
+//   return { showModal, hideModal };
+// };

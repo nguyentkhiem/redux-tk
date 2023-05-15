@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 import { HomeOutlined, PicRightOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { ModalCreateUser, ModalCreateUserProps } from 'shared/components/Modal';
 import { useModal } from 'shared/definitions/hooks';
 // others
 import { PATH_HOME, PATH_POSTS } from 'routes/paths';
+import { USERS } from 'shared/utils/variables';
 
 export interface IPostsProps {}
 
@@ -18,7 +20,17 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
   const { showModal, hideModal } = useModal();
 
+  const onClickCreateUser = () => {
+    return showModal<ModalCreateUserProps>(ModalCreateUser, {
+      user: {},
+      createUser: () => {},
+    });
+  };
+
   useEffect(() => {
+    const userInfo: any = Cookies.get(USERS);
+    console.log(11, JSON.parse(userInfo));
+
     setBreadcrumbs([
       {
         title: (
@@ -48,15 +60,7 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
   return (
     <>
       <h3>Posts</h3>
-      <Button
-        type="primary"
-        onClick={() => {
-          showModal<ModalCreateUserProps>(ModalCreateUser, {
-            user: {},
-            createUser: () => {},
-          });
-        }}
-      >
+      <Button type="primary" onClick={onClickCreateUser}>
         modal dialog
       </Button>
     </>

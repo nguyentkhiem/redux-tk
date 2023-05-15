@@ -9,6 +9,6 @@ interface IOptionsProps {
 
 export const UploadService = {
   uploadImage: (options: IOptionsProps): Promise<ListResponse<IPosts>> => {
-    return HttpApi.post(compileUrl(POSTS_API.GET_POST, options?.params));
+    return HttpApi.post(compileUrl(POSTS_API.GET_POSTS, options?.params));
   },
 };

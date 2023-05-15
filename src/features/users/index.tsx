@@ -4,17 +4,25 @@ import { BreadcrumbsContext } from 'context/breadcrumb';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PATH_HOME, PATH_USERS } from 'routes/paths';
-import useLocalStorage from 'shared/definitions/hooks/useLocalStorage';
-import { LOCAL_STORAGES } from 'shared/utils/variables';
+import { UsersService } from 'services/api';
 
 export interface IUsersProps {}
 
 const Users: React.FunctionComponent = (props: IUsersProps) => {
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
-  const [storedValueTest, setValueTest] = useLocalStorage(LOCAL_STORAGES.TEST, 'TEST');
+
+  const getListUser = async () => {
+    try {
+      const res: any = await UsersService.getUsers({ params: { status: 0, page: 0 } });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      //
+    }
+  };
 
   useEffect(() => {
-    setValueTest('HIHI');
+    getListUser();
     setBreadcrumbs([
       {
         title: (

@@ -6,5 +6,9 @@ export const AUTH_API = {
 };
 
 export const POSTS_API = {
-  GET_POST: '/typicode/demo/posts',
+  GET_POSTS: '/typicode/demo/posts',
+};
+
+export const USERS_API = {
+  GET_USERS: '/users',
 };
