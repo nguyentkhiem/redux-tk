@@ -8,7 +8,7 @@ i18n
   .use(initReactI18next)
   .init({
     lng: I18N_DEFAULT_LNG,
-    ns: ['translation', 'validation'],
+    ns: ['translation'],
     react: {
       useSuspense: false,
     },

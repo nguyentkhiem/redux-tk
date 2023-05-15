@@ -8,5 +8,6 @@
   "posts.create": "Create Posts",
   "users": "Users",
   "users.list": "List Users",
-  "users.create": "Create Users"
+  "users.create": "Create Users",
+  "validation": {}
 }
