@@ -6,7 +6,7 @@ interface IOptionsProps {
   params?: Object;
 }
 
-export const Auth = {
+export const AuthService = {
   login: (options: IOptionsProps) => {
     return HttpApi.post(compileUrl(AUTH_API.GET_ACCESS_TOKEN, options?.params));
   },

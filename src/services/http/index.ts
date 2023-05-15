@@ -1,4 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import Cookie from 'js-cookie';
+import { Permissions } from 'shared/definitions/auth';
 
 interface optionsType {
   baseURL: string | undefined;
@@ -101,7 +103,7 @@ class Http {
       (error) => {
         console.log(error);
         return Promise.reject(error);
-      }
+      },
     );
   }
   /**
@@ -120,11 +122,15 @@ class Http {
       (error) => {
         console.log(error);
         return Promise.reject(error);
-      }
+      },
     );
+  }
+
+  can(permission?: Permissions | Permissions[]): boolean {
+    return false;
   }
 }
 
 export const HttpApi = new Http({
-  baseURL: process.env.BASE_API_URL,
+  baseURL: process.env.REACT_APP_BASE_URL_API,
 });

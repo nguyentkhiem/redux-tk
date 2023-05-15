@@ -31,7 +31,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        trailingComma: 'es5',
+        trailingComma: 'all',
         semi: true,
         singleQuote: true,
         'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
