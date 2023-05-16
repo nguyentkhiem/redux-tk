@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import { HomeOutlined, PicRightOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 // context
 import { BreadcrumbsContext } from 'context/breadcrumb';
 import { LoadingContext } from 'context/loading';
@@ -16,6 +17,7 @@ import { USERS } from 'shared/utils/variables';
 export interface IPostsProps {}
 
 const Posts: React.FunctionComponent = (props: IPostsProps) => {
+  const { t } = useTranslation();
   const { setShow, setHide } = useContext(LoadingContext);
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
   const { showModal, hideModal } = useModal();
@@ -60,6 +62,7 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
   return (
     <>
       <h3>Posts</h3>
+      <h4>{t('required')}</h4>
       <Button type="primary" onClick={onClickCreateUser}>
         modal dialog
       </Button>

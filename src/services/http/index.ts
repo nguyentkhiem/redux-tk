@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookie from 'js-cookie';
-import { Permissions } from 'shared/definitions/auth';
+import { Permissions, Roles } from 'shared/definitions/auth';
+import { useAuth } from 'shared/definitions/hooks';
 
 interface optionsType {
   baseURL: string | undefined;
@@ -126,8 +127,37 @@ class Http {
     );
   }
 
+  /**
+   *
+   * @param permission
+   */
   can(permission?: Permissions | Permissions[]): boolean {
+    const { permissions: authPermissions }: any = useAuth();
+
     return false;
+  }
+
+  /**
+   *
+   * @param user
+   */
+  getUserPermissions(user: IUser): Array<Permissions> {
+    const permissions: Array<Permissions> = [];
+    // push permissions
+
+    return permissions;
+  }
+
+  /**
+   *
+   * @param user
+   */
+  getUserRole(user: IUser): Roles {
+    const { is_admin } = user;
+
+    let role: Roles = is_admin ? Roles.ADMIN : Roles.GUEST;
+
+    return role;
   }
 }
 
