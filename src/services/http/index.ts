@@ -1,7 +1,11 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookie from 'js-cookie';
+import { store } from 'redux-setup/store';
 import { Permissions, Roles } from 'shared/definitions/auth';
 import { useAuth } from 'shared/definitions/hooks';
+import { logout } from 'redux-setup/auth';
+import { ACCESS_TOKEN } from 'shared/utils/variables';
+import { AUTH } from 'shared/definitions/saga-type';
 
 interface optionsType {
   baseURL: string | undefined;
@@ -125,6 +129,25 @@ class Http {
         return Promise.reject(error);
       },
     );
+  }
+
+  /**
+   *
+   * @param user
+   */
+  login(user?: any): any {
+    store.dispatch({
+      type: AUTH.FETCH_USER_LOGIN,
+      payload: { user },
+    });
+  }
+
+  /**
+   *
+   */
+  logout() {
+    Cookie.remove(ACCESS_TOKEN);
+    store.dispatch(logout());
   }
 
   /**
