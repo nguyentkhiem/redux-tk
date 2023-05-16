@@ -1,6 +1,11 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Cookie from 'js-cookie';
-import { Permissions } from 'shared/definitions/auth';
+import { store } from 'redux-setup/store';
+import { Permissions, Roles } from 'shared/definitions/auth';
+import { useAuth } from 'shared/definitions/hooks';
+import { logout } from 'redux-setup/auth';
+import { ACCESS_TOKEN } from 'shared/utils/variables';
+import { AUTH } from 'shared/definitions/saga-type';
 
 interface optionsType {
   baseURL: string | undefined;
@@ -126,8 +131,56 @@ class Http {
     );
   }
 
+  /**
+   *
+   * @param user
+   */
+  login(user?: any): any {
+    store.dispatch({
+      type: AUTH.FETCH_USER_LOGIN,
+      payload: { user },
+    });
+  }
+
+  /**
+   *
+   */
+  logout() {
+    Cookie.remove(ACCESS_TOKEN);
+    store.dispatch(logout());
+  }
+
+  /**
+   *
+   * @param permission
+   */
   can(permission?: Permissions | Permissions[]): boolean {
+    const { permissions: authPermissions }: any = useAuth();
+
     return false;
+  }
+
+  /**
+   *
+   * @param user
+   */
+  getUserPermissions(user: IUser): Array<Permissions> {
+    const permissions: Array<Permissions> = [];
+    // push permissions
+
+    return permissions;
+  }
+
+  /**
+   *
+   * @param user
+   */
+  getUserRole(user: IUser): Roles {
+    const { is_admin } = user;
+
+    let role: Roles = is_admin ? Roles.ADMIN : Roles.GUEST;
+
+    return role;
   }
 }
 

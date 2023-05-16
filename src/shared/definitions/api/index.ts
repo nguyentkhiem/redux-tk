@@ -11,4 +11,5 @@ export const POSTS_API = {
 
 export const USERS_API = {
   GET_USERS: '/users',
+  GET_USER_INFO: '/user/info',
 };

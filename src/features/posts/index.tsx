@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import { HomeOutlined, PicRightOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 // context
 import { BreadcrumbsContext } from 'context/breadcrumb';
 import { LoadingContext } from 'context/loading';
@@ -12,10 +13,14 @@ import { useModal } from 'shared/definitions/hooks';
 // others
 import { PATH_HOME, PATH_POSTS } from 'routes/paths';
 import { USERS } from 'shared/utils/variables';
+import { useAppDispatch, useAppSelector } from 'redux-setup/hooks';
 
 export interface IPostsProps {}
 
 const Posts: React.FunctionComponent = (props: IPostsProps) => {
+  const { t } = useTranslation();
+  const state = useAppSelector((state) => state);
+  const dispatch = useAppDispatch();
   const { setShow, setHide } = useContext(LoadingContext);
   const { setBreadcrumbs } = useContext(BreadcrumbsContext);
   const { showModal, hideModal } = useModal();
@@ -29,8 +34,7 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
 
   useEffect(() => {
     const userInfo: any = Cookies.get(USERS);
-    console.log(11, JSON.parse(userInfo));
-
+    console.log('state', state);
     setBreadcrumbs([
       {
         title: (
@@ -60,6 +64,7 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
   return (
     <>
       <h3>Posts</h3>
+      <h4>{t('required')}</h4>
       <Button type="primary" onClick={onClickCreateUser}>
         modal dialog
       </Button>

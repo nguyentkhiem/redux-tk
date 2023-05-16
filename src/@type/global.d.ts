@@ -45,3 +45,29 @@ interface IBreadcrumbs {
   icon?: ReactNode;
   title?: string | ReactNode;
 }
+
+interface IUser {
+  id?: ID;
+  email?: string;
+  is_admin?: boolean;
+  image?: {
+    image?: string;
+    id?: ID;
+  };
+  first_name?: string;
+  last_name?: string;
+  position?: string;
+  phone?: string;
+  department?: string;
+  [x: string]: any;
+}
+
+interface ResponseGenerator {
+  config?: any;
+  data?: any;
+  body?: any;
+  headers?: any;
+  request?: any;
+  status?: number;
+  statusText?: string;
+}
