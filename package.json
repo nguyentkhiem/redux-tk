@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
-    "@commitlint/cli": "^17.5.1",
-    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
     "@reduxjs/toolkit": "^1.8.1",
     "@tanem/react-nprogress": "^5.0.33",
     "@testing-library/jest-dom": "^5.16.4",
@@ -39,12 +39,12 @@
     "i18next": "^22.4.14",
     "i18next-http-backend": "^2.2.0",
     "js-cookie": "^3.0.1",
-    "lint-staged": "^13.2.0",
+    "lint-staged": "^13.2.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "node-sass": "^8.0.0",
     "path-to-regexp": "^6.2.1",
-    "prettier": "^2.8.7",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -65,10 +65,13 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx --ext .ts ./src",
     "lint-staged": "lint-staged",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "eslint"
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn prettier --write"
+    ]
   },
   "husky": {
     "hooks": {
