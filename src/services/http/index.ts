@@ -92,7 +92,8 @@ class Http {
   configHeaderAuthorization(configs: AxiosRequestConfig, accessToken: string) {
     try {
       configs.headers = {
-        authorization: `Bearer ${accessToken}`,
+        ...configs.headers,
+        Authorization: `Bearer ${accessToken}`,
       };
       return configs;
     } catch (e) {
