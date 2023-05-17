@@ -1,27 +1,27 @@
 type ID = string | number | undefined;
-interface LayoutDefaultProps {
+type LayoutDefaultProps = {
   children?: ReactNode;
-}
+};
 
-interface AppContextProps {
+type AppContextProps = {
   props: {
     [x: string]: any;
   };
   setProps: (props: { [x: string]: any }) => void;
-}
+};
 
-interface ModalDefaultProps {
+type ModalDefaultProps = {
   onClose?: () => void;
-}
+};
 
-interface ModalContextProps {
+type ModalContextProps = {
   component: React.ComponentType<T> | null;
   props: T;
   showModal: <T>(component: React.ComponentType<T & ModalDefaultProps> | null, props?: T) => void;
   hideModal: () => void;
-}
+};
 
-interface RoutesObject {
+type RoutesObject = {
   path: string;
   name?: string;
   icon?: ReactNode;
@@ -29,24 +29,24 @@ interface RoutesObject {
   hideInMenu?: boolean;
   layout?: ReactNode;
   roles?: string['ADMIN' | 'USER' | 'GUEST'];
-}
+};
 
-interface RoutesConfig {
+type RoutesConfig = {
   path: string;
   name?: string;
   hideInMenu?: boolean;
   icon?: ReactNode;
   layout: ReactNode;
   routes?: RoutesObject[];
-}
+};
 
-interface IBreadcrumbs {
+type IBreadcrumbs = {
   path?: string | ReactNode;
   icon?: ReactNode;
   title?: string | ReactNode;
-}
+};
 
-interface IUser {
+type IUser = {
   id?: ID;
   email?: string;
   is_admin?: boolean;
@@ -60,9 +60,9 @@ interface IUser {
   phone?: string;
   department?: string;
   [x: string]: any;
-}
+};
 
-interface ResponseGenerator {
+type ResponseGenerator = {
   config?: any;
   data?: any;
   body?: any;
@@ -70,4 +70,4 @@ interface ResponseGenerator {
   request?: any;
   status?: number;
   statusText?: string;
-}
+};
