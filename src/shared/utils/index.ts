@@ -247,3 +247,15 @@ export const disabledTimeEnddate = (current: null | moment.Moment, startDate: st
     },
   };
 };
+
+/**
+ *
+ * @param top
+ */
+export const scrollToTop = (top: number = 0) => {
+  return window.scrollTo({
+    top: top,
+    left: 0,
+    behavior: 'smooth',
+  });
+};

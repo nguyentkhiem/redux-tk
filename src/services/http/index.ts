@@ -89,7 +89,7 @@ class Http {
     return this._http.options(url, config);
   }
 
-  configHeaderAuthorization(configs: configsType, accessToken: string) {
+  configHeaderAuthorization(configs: AxiosRequestConfig, accessToken: string) {
     try {
       configs.headers = {
         authorization: `Bearer ${accessToken}`,
@@ -103,7 +103,8 @@ class Http {
   interceptorsRequest() {
     this._http.interceptors.request.use(
       async (config: AxiosRequestConfig): Promise<any> => {
-        return config;
+        const accessToken: string = `${Cookie.get(ACCESS_TOKEN)}`;
+        return this.configHeaderAuthorization(config, accessToken);
       },
       (error) => {
         console.log(error);

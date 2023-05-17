@@ -1,13 +1,13 @@
-export interface PaginationParams {
+export type PaginationParams = {
   limit: number;
   page: number;
   total: number;
   order: 'ASC' | 'DESC';
 
   [key: string]: any;
-}
+};
 
-export interface ListResponse<T> {
+export type ListResponse<T> = {
   data: T[];
   pagination?: PaginationParams;
-}
+};

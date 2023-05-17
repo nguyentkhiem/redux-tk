@@ -1,4 +1,4 @@
-export interface IPosts {
+export type IPosts = {
   id: number;
   title: number;
-}
+};

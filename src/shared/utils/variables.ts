@@ -1,6 +1,6 @@
-export const ACCESS_TOKEN = 'ACCESS_TOKEN';
-export const REFRESH_TOKEN = 'REFRESH_TOKEN';
-export const USERS = 'USERS';
+export const ACCESS_TOKEN: string = 'ACCESS_TOKEN';
+export const REFRESH_TOKEN: string = 'REFRESH_TOKEN';
+export const USERS: string = 'USERS';
 
 // storage
 export const LOCAL_STORAGES = {
@@ -12,24 +12,24 @@ export const SESSION_STORAGES = {
 };
 
 // date
-export const FM_DATE = 'YYYY/MM/DD';
+export const FM_DATE: string = 'YYYY/MM/DD';
 
-export const FM_TIMEO = 'HH-mm';
+export const FM_TIMEO: string = 'HH-mm';
 
-export const FM_TIMET = 'HH:mm';
+export const FM_TIMET: string = 'HH:mm';
 
-export const FM_DATE_TIMEO = 'YYYY/MM/DD HH-mm';
+export const FM_DATE_TIMEO: string = 'YYYY/MM/DD HH-mm';
 
-export const FM_DATE_TIMET = 'YYYY/MM/DD HH-mm-ss';
+export const FM_DATE_TIMET: string = 'YYYY/MM/DD HH-mm-ss';
 
 // maxlength, minlength
-export const MINL_INPUT_1 = 1;
+export const MINL_INPUT_1: number = 1;
 
-export const MAXL_INPUT_100 = 100;
-export const MAXL_INPUT_255 = 255;
+export const MAXL_INPUT_100: number = 100;
+export const MAXL_INPUT_255: number = 255;
 
-export const MAXL_TEXTAREA_1000 = 1000;
-export const MAXL_TEXTAREA_2000 = 2000;
+export const MAXL_TEXTAREA_1000: number = 1000;
+export const MAXL_TEXTAREA_2000: number = 2000;
 
 // status code api
 export const API_STATUS = {
@@ -52,5 +52,24 @@ export const NOTIFICATION = {
   WARNING: 'warning',
 };
 
+// breakpoints
+export const BREAKPOINTS = {
+  XS: 'xs',
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+  XL: 'xl',
+  XXL: 'xxl',
+};
+
+export const BREAKPOINTS_NUM = {
+  XS: 0,
+  SM: 576,
+  MD: 768,
+  LG: 992,
+  XL: 1200,
+  XXL: 1400,
+};
+
 // others
-export const PAGE_LIMIT = 10;
+export const PAGE_LIMIT: number = 10;
