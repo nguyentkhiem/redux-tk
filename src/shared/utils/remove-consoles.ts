@@ -1,20 +1,21 @@
 /* eslint-disable */
 // @ts-nocheck
-export const GlobalDebug = (function () {
+export const GlobalDebug = (() => {
   const savedConsole = console;
   /**
    * @param {boolean} debugOn
    * @param {boolean} suppressAll
    */
-  return function (debugOn: boolean, suppressAll: boolean) {
+  return (debugOn: boolean, suppressAll: boolean) => {
     if (!debugOn) {
       console = {};
-      console.log = function () {};
+      console.log = () => {};
+
       if (suppressAll) {
-        console.info = function () {};
-        console.warn = function () {};
-        console.error = function () {};
-        console.debug = function () {};
+        console.info = () => {};
+        console.warn = () => {};
+        console.error = () => {};
+        console.debug = () => {};
       } else {
         console.info = savedConsole.info;
         console.warn = savedConsole.warn;
