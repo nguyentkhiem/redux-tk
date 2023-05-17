@@ -52,5 +52,24 @@ export const NOTIFICATION = {
   WARNING: 'warning',
 };
 
+// breakpoints
+export const BREAKPOINTS = {
+  XS: 'xs',
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+  XL: 'xl',
+  XXL: 'xxl',
+};
+
+export const BREAKPOINTS_NUM = {
+  XS: 0,
+  SM: 576,
+  MD: 768,
+  LG: 992,
+  XL: 1200,
+  XXL: 1400,
+};
+
 // others
 export const PAGE_LIMIT = 10;

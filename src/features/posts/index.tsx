@@ -4,6 +4,7 @@ import { HomeOutlined, PicRightOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useMediaQuery, { MediaQueryKey } from 'use-media-antd-query';
 // context
 import { BreadcrumbsContext } from 'context/breadcrumb';
 import { LoadingContext } from 'context/loading';
@@ -19,6 +20,7 @@ export interface IPostsProps {}
 
 const Posts: React.FunctionComponent = (props: IPostsProps) => {
   const { t } = useTranslation();
+  const colSize = useMediaQuery();
   const state = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
   const { setShow, setHide } = useContext(LoadingContext);
@@ -34,7 +36,7 @@ const Posts: React.FunctionComponent = (props: IPostsProps) => {
 
   useEffect(() => {
     const userInfo: any = Cookies.get(USERS);
-    console.log('state', state);
+    console.log('colSize', colSize);
     setBreadcrumbs([
       {
         title: (
