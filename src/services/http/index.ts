@@ -25,22 +25,33 @@ interface configsType {
 class Http {
   _http;
 
+  /**
+   * @param options
+   */
   constructor(options: optionsType) {
     this._http = axios.create(options);
     this.interceptorsRequest();
     this.interceptorsResponse();
   }
 
+  /**
+   * @param url
+   * @param config
+   */
   get({ url, config }: requestsType) {
     return this._http.get(url, config);
   }
 
+  /**
+   * @param url
+   * @param data
+   * @param config
+   */
   post({ url, data, config }: requestsType) {
     return this._http.post(url, data, config);
   }
 
   /**
-   *
    * @param url
    * @param data
    * @param config
@@ -50,7 +61,6 @@ class Http {
   }
 
   /**
-   *
    * @param url
    * @param data
    * @param config
@@ -60,7 +70,6 @@ class Http {
   }
 
   /**
-   *
    * @param url
    * @param data
    * @param config
@@ -70,7 +79,6 @@ class Http {
   }
 
   /**
-   *
    * @param url
    * @param data
    * @param config
@@ -80,7 +88,6 @@ class Http {
   }
 
   /**
-   *
    * @param url
    * @param data
    * @param config
@@ -89,6 +96,10 @@ class Http {
     return this._http.options(url, config);
   }
 
+  /**
+   * @param configs
+   * @param accessToken
+   */
   configHeaderAuthorization(configs: AxiosRequestConfig, accessToken: string) {
     try {
       configs.headers = {
@@ -101,6 +112,9 @@ class Http {
     }
   }
 
+  /**
+   *
+   */
   interceptorsRequest() {
     this._http.interceptors.request.use(
       async (config: AxiosRequestConfig): Promise<any> => {
@@ -113,6 +127,7 @@ class Http {
       },
     );
   }
+
   /**
    *
    */
@@ -153,7 +168,6 @@ class Http {
   }
 
   /**
-   *
    * @param permission
    */
   can(permission?: Permissions | Permissions[]): boolean {
@@ -163,7 +177,6 @@ class Http {
   }
 
   /**
-   *
    * @param user
    */
   getUserPermissions(user: IUser): Array<Permissions> {
@@ -174,7 +187,6 @@ class Http {
   }
 
   /**
-   *
    * @param user
    */
   getUserRole(user: IUser): Roles {
