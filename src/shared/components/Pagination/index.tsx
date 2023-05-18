@@ -1,6 +1,6 @@
 import { Form, Pagination, Select } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { PAGE_LIMIT } from 'shared/utils/variables';
+import { PAGE_LIMIT } from 'shared/constants/variables';
 
 interface Props {
   isShow?: boolean;
