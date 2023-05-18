@@ -3,6 +3,11 @@ import moment from 'moment';
 import { compile } from 'path-to-regexp';
 import { v4 as uuidv4 } from 'uuid';
 
+/**
+ * @input link
+ * @input params
+ * @description
+ */
 export const compileUrl = (link: string, params?: Object) => {
   const url = compile(link)(params);
   return {

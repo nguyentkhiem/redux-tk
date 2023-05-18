@@ -7,7 +7,7 @@ import { useAuth } from 'shared/definitions/hooks';
 import { DEFAULT_PAGE_HOME } from 'shared/definitions/config';
 import styles from './login.module.scss';
 import { PATH_HOME } from 'routes/paths';
-import { HttpApi } from 'services/http';
+// import { HttpApi } from 'services/http';
 
 export interface ILoginProps {}
 
@@ -17,13 +17,13 @@ export default function Login(props: ILoginProps) {
 
   const onFinish = (values: any) => {
     Cookie.set(ACCESS_TOKEN, values.username);
-    HttpApi.login({
-      body: {
-        id: 22,
-        username: 'khiemnt',
-        age: 27,
-      },
-    });
+    // HttpApi.login({
+    //   body: {
+    //     id: 22,
+    //     username: 'khiemnt',
+    //     age: 27,
+    //   },
+    // });
 
     setTimeout(() => {
       navigate(DEFAULT_PAGE_HOME);

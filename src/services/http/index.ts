@@ -6,6 +6,7 @@ import { useAuth } from 'shared/definitions/hooks';
 import { logout } from 'redux-setup/auth';
 import { ACCESS_TOKEN } from 'shared/constants/variables';
 import { AUTH } from 'shared/definitions/saga-type';
+import { DEFAULT_PAGE_LOGIN } from 'shared/definitions/config';
 
 interface optionsType {
   baseURL: string | undefined;
@@ -144,7 +145,7 @@ class Http {
       (error) => {
         if ([400, 401, 500].includes(error.response.status)) {
           this.logout();
-          window.location.href = '/auth/login';
+          window.location.href = DEFAULT_PAGE_LOGIN;
         }
         return Promise.reject(error);
       },
