@@ -6,7 +6,7 @@ import i18n from 'i18n';
 // others
 import { PAGES_NOT_AUTH, PATH_AUTH_LOGIN } from 'routes/paths';
 import { useAuth } from 'shared/definitions/hooks';
-import { GlobalDebug } from 'shared/utils/remove-consoles';
+import { GlobalDebug } from 'shared/utils';
 import { ENV_PRODUCTION } from 'shared/definitions/config';
 
 export const AppContext = createContext<AppContextProps>({

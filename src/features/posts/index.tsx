@@ -13,7 +13,7 @@ import { ModalCreateUser, ModalCreateUserProps } from 'shared/components/Modal';
 import { useModal } from 'shared/definitions/hooks';
 // others
 import { PATH_HOME, PATH_POSTS } from 'routes/paths';
-import { USERS } from 'shared/utils/variables';
+import { USERS } from 'shared/constants/variables';
 import { useAppDispatch, useAppSelector } from 'redux-setup/hooks';
 
 export interface IPostsProps {}

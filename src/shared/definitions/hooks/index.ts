@@ -3,7 +3,7 @@ import Cookie from 'js-cookie';
 import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux-setup/root-reducer';
-import { ACCESS_TOKEN } from 'shared/utils/variables';
+import { ACCESS_TOKEN } from 'shared/constants/variables';
 
 /**
  * @description

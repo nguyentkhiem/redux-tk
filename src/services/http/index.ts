@@ -4,7 +4,7 @@ import { store } from 'redux-setup/store';
 import { Permissions, Roles } from 'shared/definitions/auth';
 import { useAuth } from 'shared/definitions/hooks';
 import { logout } from 'redux-setup/auth';
-import { ACCESS_TOKEN } from 'shared/utils/variables';
+import { ACCESS_TOKEN } from 'shared/constants/variables';
 import { AUTH } from 'shared/definitions/saga-type';
 
 interface optionsType {
@@ -142,7 +142,10 @@ class Http {
         }
       },
       (error) => {
-        console.log(error);
+        if ([400, 401, 500].includes(error.response.status)) {
+          this.logout();
+          window.location.href = '/auth/login';
+        }
         return Promise.reject(error);
       },
     );

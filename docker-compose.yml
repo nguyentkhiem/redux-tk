@@ -10,3 +10,11 @@ services:
       - /var/www/react_base/node_modules
     ports:
       - 5006:3002
+
+gitlab-runner:
+  image: 'gitlab/gitlab-runner:latest'
+  container_name: react_base-runner
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./gilab-runner-config:/etc/gitlab-runner
+  restart: unless-stopped
