@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { withRole } from 'shared/libs';
 
 // Lazy load component async
-const LazyLoad = (component: string) => React.lazy(() => import(`features/${component}`));
+const LazyLoad = (component: string) => React.lazy(() => import(`pages/${component}`));
 
 const parseConfig = () => {
   const routes = [];
